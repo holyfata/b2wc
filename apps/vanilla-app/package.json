@@ -3,6 +3,5 @@
   "version": "1.0.0",
   "scripts": {
     "dev": "vite"
-  },
-  "packageManager": "pnpm@10.13.1"
+  }
 }

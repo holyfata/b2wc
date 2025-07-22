@@ -7,6 +7,5 @@
     "vanilla-app:dev": "pnpm run --filter=vanilla-app dev",
     "vue-app:dev": "pnpm run --filter=vue-app dev",
     "apps:dev": "npm-run-all --parallel dev react-app:dev vanilla-app:dev vue-app:dev"
-  },
-  "packageManager": "pnpm@10.13.1"
+  }
 }
