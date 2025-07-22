@@ -1,7 +1,8 @@
 export default function App() {
   return (
     <div>
-      <h2>React App</h2>
+      {/* @ts-ignore */}
+      <my-vue-element></my-vue-element>
     </div>
   )
 }

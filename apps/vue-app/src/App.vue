@@ -2,6 +2,6 @@
 
 <template>
   <div>
-    <h2>Vue App</h2>
+    <my-vue-element></my-vue-element>
   </div>
 </template>

@@ -60,11 +60,23 @@ importers:
 
   apps: {}
 
-  apps/react-app: {}
+  apps/react-app:
+    dependencies:
+      my-vue-element:
+        specifier: workspace:^
+        version: link:../../packages/my-vue-element
 
-  apps/vanilla-app: {}
+  apps/vanilla-app:
+    dependencies:
+      my-vue-element:
+        specifier: workspace:^
+        version: link:../../packages/my-vue-element
 
-  apps/vue-app: {}
+  apps/vue-app:
+    dependencies:
+      my-vue-element:
+        specifier: workspace:^
+        version: link:../../packages/my-vue-element
 
   packages/my-lit-element: {}
 

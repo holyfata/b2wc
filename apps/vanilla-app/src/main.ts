@@ -1,5 +1,7 @@
+import "my-vue-element"
+
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   <div>
-    <h2>Vanilla App</h2>
+    <my-vue-element></my-vue-element>
   </div>
 `
