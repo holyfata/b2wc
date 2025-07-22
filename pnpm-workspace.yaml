@@ -1,0 +1,11 @@
+packages:
+  - apps/react-app
+  - apps/vanilla-app
+  - apps/vue-app
+  - packages/my-lit-element
+  - packages/my-react-element
+  - packages/my-stencil-element
+  - packages/my-vue-element
+
+onlyBuiltDependencies:
+  - esbuild
