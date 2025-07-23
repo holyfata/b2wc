@@ -3,7 +3,7 @@ import vue from '@vitejs/plugin-vue'
 
 // https://vite.dev/config/
 export default defineConfig({
-  base: '/vue-app/',
+  base: '/b2wc/vue-app/',
   plugins: [vue({
     customElement: ["my-vue-element"]
   })],
