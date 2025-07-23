@@ -1,55 +1,85 @@
-name: 部署 App 到Github Page
+# 工作流名称：部署应用到 GitHub Pages
+name: 部署 App 到 Github Page
 
+# 触发条件：
+# 1. 当代码推送到 master 分支时自动触发
+# 2. 允许手动触发工作流（在 GitHub 界面操作）
 on:
   push:
     branches: [master]
 
   workflow_dispatch:
 
+# 权限设置：
+#  - 读取代码内容
+#  - 写入 Pages 内容
+#  - 生成身份令牌（用于部署验证）
 permissions:
   contents: read
   pages: write
   id-token: write
 
+# 并发控制：
+#  - 同一分组（pages）的工作流不会同时运行
+#  - 不取消正在进行中的任务
 concurrency:
   group: pages
   cancel-in-progress: false
 
+# 定义工作任务
 jobs:
+  # 构建任务：负责拉取代码、安装依赖、构建应用并上传产物
   build:
+    # 运行环境：最新版 Ubuntu 系统
     runs-on: ubuntu-latest
     steps:
+      # 步骤1：拉取当前仓库代码
       - name: Checkout
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0
+          fetch-depth: 0  # 拉取完整的提交历史
+
+      # 步骤2：安装 pnpm 包管理器（指定版本 10.13.1）
       - uses: pnpm/action-setup@v3
         with:
           version: 10.13.1
+
+      # 步骤3：设置 Node.js 环境（指定版本 24.0.2）
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: 24.0.2
-          cache: pnpm
+          cache: pnpm  # 缓存 pnpm 依赖以加快后续构建
+
+      # 步骤4：配置 GitHub Pages 环境
       - name: Setup Pages
         uses: actions/configure-pages@v4
+
+      # 步骤5：安装项目依赖
       - name: Install dependencies
         run: pnpm install
+
+      # 步骤6：执行应用构建命令（根据项目实际脚本调整）
       - name: Build with Apps
         run: pnpm run app:build
+
+      # 步骤7：上传构建产物（dist 目录）作为 Pages 部署的素材
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: dist
+          path: dist  # 构建产物所在目录
 
+  # 部署任务：将构建产物部署到 GitHub Pages
   deploy:
+    # 部署环境标识（与 GitHub Pages 环境关联）
     environment:
       name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    needs: build
+      url: ${{ steps.deployment.outputs.page_url }}  # 部署后的访问 URL
+    needs: build  # 依赖 build 任务，只有 build 成功后才会执行
     runs-on: ubuntu-latest
     name: Deploy
     steps:
+      # 步骤1：执行部署操作，将上传的构建产物部署到 GitHub Pages
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
