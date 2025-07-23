@@ -4,7 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "app:dev": "pnpm run --filter=apps apps:dev"
+    "app:dev": "pnpm run --filter=apps apps:dev",
+    "preapp:build": "pnpm run --filter=my-vue-element build",
+    "app:build": "pnpm run --filter=apps apps:build",
+    "app:preview": "vite preview"
   },
   "keywords": [],
   "author": "",

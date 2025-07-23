@@ -23,11 +23,13 @@ import fs from 'node:fs'
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
 
+const distPath = path.join(__dirname, '../dist')
+
 // 主函数包装所有操作，提供统一的错误处理
 async function build() {
     try {
         // 创建dist文件夹(如果已存在则删除)
-        const distPath = path.join(__dirname, 'dist')
+        
         if (fs.existsSync(distPath)) {
             await fs.promises.rm(distPath, { recursive: true, force: true })
         }
@@ -51,9 +53,9 @@ async function build() {
         
         // 定义需要复制的应用列表
         const apps = [
-            { name: 'vue-app', source: './vue-app/dist', target: './dist/vue-app' },
-            { name: 'react-app', source: './react-app/dist', target: './dist/react-app' },
-            { name: 'vanilla-app', source: './vanilla-app/dist', target: './dist/vanilla-app' }
+            { name: 'vue-app', source: './vue-app/dist', target: './vue-app' },
+            { name: 'react-app', source: './react-app/dist', target: './react-app' },
+            { name: 'vanilla-app', source: './vanilla-app/dist', target: './vanilla-app' }
         ]
         
         // 复制所有应用的dist目录到主dist目录
@@ -62,7 +64,7 @@ async function build() {
             try {
                 await copyFolder(
                     path.join(__dirname, app.source),
-                    path.join(__dirname, app.target)
+                    path.join(distPath, app.target)
                 )
                 console.log(`✅ 成功复制 ${app.name} 应用`)
             } catch (err) {

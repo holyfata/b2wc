@@ -15,11 +15,6 @@ concurrency:
   group: pages
   cancel-in-progress: false
 
-defaults:
-  run:
-    shell: bash
-    working-directory: ./apps
-
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -41,7 +36,7 @@ jobs:
       - name: Install dependencies
         run: pnpm install
       - name: Build with Apps
-        run: pnpm run apps:build
+        run: pnpm run app:build
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
