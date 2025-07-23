@@ -14,3 +14,12 @@ const styleColor = 'orange'
     </p>
     <p>绑定内联样式：<span :style="{ color: styleColor }">橙色文案</span></p>
 </template>
+
+<style lang="scss" scoped>
+.color-bule {
+  color: blue;
+}
+.color-red {
+  color: red;
+}
+</style>
