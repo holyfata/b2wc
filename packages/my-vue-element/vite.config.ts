@@ -24,13 +24,13 @@ export default defineConfig({
       formats: ['es'],
       fileName: (format) => `index.${format}.js`
     },
-    rollupOptions: {
-      external: ['vue'],
-      output: {
-        globals: {
-          vue: 'Vue'
-        }
-      }
-    }
+    // rollupOptions: {
+    //   external: ['vue'],
+    //   output: {
+    //     globals: {
+    //       vue: 'Vue'
+    //     }
+    //   }
+    // }
   }
 })

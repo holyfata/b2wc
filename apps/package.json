@@ -1,11 +1,18 @@
 {
   "name": "apps",
   "version": "1.0.0",
+  "type": "module",
   "scripts": {
     "dev": "vite",
     "react-app:dev": "pnpm run --filter=react-app dev",
     "vanilla-app:dev": "pnpm run --filter=vanilla-app dev",
     "vue-app:dev": "pnpm run --filter=vue-app dev",
-    "apps:dev": "npm-run-all --parallel dev react-app:dev vanilla-app:dev vue-app:dev"
+    "apps:dev": "npm-run-all --parallel dev react-app:dev vanilla-app:dev vue-app:dev",
+    "react-app:build": "pnpm run --filter=react-app build",
+    "vanilla-app:build": "pnpm run --filter=vanilla-app build",
+    "vue-app:build": "pnpm run --filter=vue-app build",
+    "apps:build": "npm-run-all --parallel vue-app:build react-app:build vanilla-app:build",
+    "postapps:build": "node --experimental-strip-types build.ts",
+    "apps:preview": "vite preview"
   }
 }
