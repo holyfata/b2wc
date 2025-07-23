@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { onMounted, reactive, ref, watch } from 'vue';
 // import TemplateCe from './components/Template.ce.vue';
 // import ReactiveCe from './components/Reactive.ce.vue';
 // import ComputedCe from './components/Computed.ce.vue';
@@ -11,7 +10,7 @@ import { onMounted, reactive, ref, watch } from 'vue';
 import WatchCe from './components/Watch.ce.vue';
 import ReferenceCe from './components/Reference.ce.vue';
 import ComponentCe from './components/Component.ce.vue';
-import { randomNum } from './utils';
+import LifeCycleCe from './components/LifeCycle.ce.vue';
 </script>
 
 <template>
@@ -39,6 +38,8 @@ import { randomNum } from './utils';
     <ReferenceCe />
 
     <ComponentCe />
+
+    <LifeCycleCe />
   </div>
 </template>
 
