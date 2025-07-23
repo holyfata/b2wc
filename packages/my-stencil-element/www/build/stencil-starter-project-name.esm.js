@@ -1,0 +1,2 @@
+import{p as t,b as o}from"./p-DzogKFRu.js";export{s as setNonce}from"./p-DzogKFRu.js";import{g as r}from"./p-DQuL1Twl.js";var e=()=>{const s=import.meta.url;const o={};if(s!==""){o.resourcesUrl=new URL(".",s).href}return t(o)};e().then((async s=>{await r();return o([["p-8f099306",[[257,"my-stencil-element"]]]],s)}));
+//# sourceMappingURL=stencil-starter-project-name.esm.js.map

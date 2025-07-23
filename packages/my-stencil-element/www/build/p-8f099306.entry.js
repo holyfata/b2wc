@@ -1,0 +1,2 @@
+import{r as c,h as s,H as a}from"./p-DzogKFRu.js";const e=":host{display:block}";const t=class{constructor(s){c(this,s)}render(){return s(a,{key:"cb4fa1704fc241031920256f5ddc096dcdb01123"},s("slot",{key:"cae1dd533a08482a1a3f2afa50bbee80cdacd598"}))}};t.style=e;export{t as my_stencil_element};
+//# sourceMappingURL=p-8f099306.entry.js.map
