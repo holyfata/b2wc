@@ -11,6 +11,7 @@ import WatchCe from './components/Watch.ce.vue';
 import ReferenceCe from './components/Reference.ce.vue';
 import ComponentCe from './components/Component.ce.vue';
 import LifeCycleCe from './components/LifeCycle.ce.vue';
+import ProviderCe from './components/Provider.ce.vue';
 </script>
 
 <template>
@@ -40,6 +41,8 @@ import LifeCycleCe from './components/LifeCycle.ce.vue';
     <ComponentCe />
 
     <LifeCycleCe />
+
+    <ProviderCe />
   </div>
 </template>
 
